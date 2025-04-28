@@ -1,8 +1,7 @@
 import express, { Request, Response } from "express";
-import { PrismaClient } from "@prisma/client";
+const prisma= require ("../db");
+const router = require("express").Router();
 
-const prisma = new PrismaClient();
-const router = express.Router();
 
 // Get all feedback for a specific recipe
 router.get("/recipe/:recipeId", async (req: Request, res: Response) => {
@@ -78,4 +77,4 @@ router.delete("/:id", async (req: Request, res: Response) => {
   res.json(deletedFeedback);
 });
 
-export default router;
+module.exports = router;
