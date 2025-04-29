@@ -123,7 +123,8 @@ exports.Prisma.RecipeScalarFieldEnum = {
   image: 'image',
   description: 'description',
   ingredients: 'ingredients',
-  instructions: 'instructions'
+  instructions: 'instructions',
+  category: 'category'
 };
 
 exports.Prisma.FeedbackScalarFieldEnum = {

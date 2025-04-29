@@ -35,7 +35,7 @@ router.get("/:id", async (req: Request<{ id: string }>, res: Response) => {
 
 // Create a new recipe
 router.post("/", async (req: Request, res: Response) => {
-  const { title, image, description, ingredients, instructions } = req.body;
+  const { title, image, description, ingredients, instructions, category, } = req.body;
 
   const newRecipe = await prisma.recipe.create({
     data: {
@@ -44,6 +44,8 @@ router.post("/", async (req: Request, res: Response) => {
       description,
       ingredients,
       instructions,
+      category,
+  
     },
   });
 
@@ -53,7 +55,7 @@ router.post("/", async (req: Request, res: Response) => {
 // Update a recipe
 router.put("/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
-  const { title, image, description, ingredients, instructions } = req.body;
+  const { title, image, description, ingredients, instructions, category, } = req.body;
 
   const updatedRecipe = await prisma.recipe.update({
     where: { id: Number(id) },
@@ -63,6 +65,7 @@ router.put("/:id", async (req: Request, res: Response) => {
       description,
       ingredients,
       instructions,
+      category,
     },
   });
 

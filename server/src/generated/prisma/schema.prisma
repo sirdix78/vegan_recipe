@@ -21,6 +21,7 @@ model Recipe {
   description  String?
   ingredients  String?
   instructions String?
+  category     String?
   feedback     Feedback[]
 }
 

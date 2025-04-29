@@ -1017,6 +1017,7 @@ export namespace Prisma {
     description: string | null
     ingredients: string | null
     instructions: string | null
+    category: string | null
   }
 
   export type RecipeMaxAggregateOutputType = {
@@ -1026,6 +1027,7 @@ export namespace Prisma {
     description: string | null
     ingredients: string | null
     instructions: string | null
+    category: string | null
   }
 
   export type RecipeCountAggregateOutputType = {
@@ -1035,6 +1037,7 @@ export namespace Prisma {
     description: number
     ingredients: number
     instructions: number
+    category: number
     _all: number
   }
 
@@ -1054,6 +1057,7 @@ export namespace Prisma {
     description?: true
     ingredients?: true
     instructions?: true
+    category?: true
   }
 
   export type RecipeMaxAggregateInputType = {
@@ -1063,6 +1067,7 @@ export namespace Prisma {
     description?: true
     ingredients?: true
     instructions?: true
+    category?: true
   }
 
   export type RecipeCountAggregateInputType = {
@@ -1072,6 +1077,7 @@ export namespace Prisma {
     description?: true
     ingredients?: true
     instructions?: true
+    category?: true
     _all?: true
   }
 
@@ -1168,6 +1174,7 @@ export namespace Prisma {
     description: string | null
     ingredients: string | null
     instructions: string | null
+    category: string | null
     _count: RecipeCountAggregateOutputType | null
     _avg: RecipeAvgAggregateOutputType | null
     _sum: RecipeSumAggregateOutputType | null
@@ -1196,6 +1203,7 @@ export namespace Prisma {
     description?: boolean
     ingredients?: boolean
     instructions?: boolean
+    category?: boolean
     feedback?: boolean | Recipe$feedbackArgs<ExtArgs>
     _count?: boolean | RecipeCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["recipe"]>
@@ -1207,6 +1215,7 @@ export namespace Prisma {
     description?: boolean
     ingredients?: boolean
     instructions?: boolean
+    category?: boolean
   }, ExtArgs["result"]["recipe"]>
 
   export type RecipeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1216,6 +1225,7 @@ export namespace Prisma {
     description?: boolean
     ingredients?: boolean
     instructions?: boolean
+    category?: boolean
   }, ExtArgs["result"]["recipe"]>
 
   export type RecipeSelectScalar = {
@@ -1225,9 +1235,10 @@ export namespace Prisma {
     description?: boolean
     ingredients?: boolean
     instructions?: boolean
+    category?: boolean
   }
 
-  export type RecipeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "image" | "description" | "ingredients" | "instructions", ExtArgs["result"]["recipe"]>
+  export type RecipeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "image" | "description" | "ingredients" | "instructions" | "category", ExtArgs["result"]["recipe"]>
   export type RecipeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     feedback?: boolean | Recipe$feedbackArgs<ExtArgs>
     _count?: boolean | RecipeCountOutputTypeDefaultArgs<ExtArgs>
@@ -1247,6 +1258,7 @@ export namespace Prisma {
       description: string | null
       ingredients: string | null
       instructions: string | null
+      category: string | null
     }, ExtArgs["result"]["recipe"]>
     composites: {}
   }
@@ -1677,6 +1689,7 @@ export namespace Prisma {
     readonly description: FieldRef<"Recipe", 'String'>
     readonly ingredients: FieldRef<"Recipe", 'String'>
     readonly instructions: FieldRef<"Recipe", 'String'>
+    readonly category: FieldRef<"Recipe", 'String'>
   }
     
 
@@ -3227,7 +3240,8 @@ export namespace Prisma {
     image: 'image',
     description: 'description',
     ingredients: 'ingredients',
-    instructions: 'instructions'
+    instructions: 'instructions',
+    category: 'category'
   };
 
   export type RecipeScalarFieldEnum = (typeof RecipeScalarFieldEnum)[keyof typeof RecipeScalarFieldEnum]
@@ -3328,6 +3342,7 @@ export namespace Prisma {
     description?: StringNullableFilter<"Recipe"> | string | null
     ingredients?: StringNullableFilter<"Recipe"> | string | null
     instructions?: StringNullableFilter<"Recipe"> | string | null
+    category?: StringNullableFilter<"Recipe"> | string | null
     feedback?: FeedbackListRelationFilter
   }
 
@@ -3338,6 +3353,7 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     ingredients?: SortOrderInput | SortOrder
     instructions?: SortOrderInput | SortOrder
+    category?: SortOrderInput | SortOrder
     feedback?: FeedbackOrderByRelationAggregateInput
   }
 
@@ -3351,6 +3367,7 @@ export namespace Prisma {
     description?: StringNullableFilter<"Recipe"> | string | null
     ingredients?: StringNullableFilter<"Recipe"> | string | null
     instructions?: StringNullableFilter<"Recipe"> | string | null
+    category?: StringNullableFilter<"Recipe"> | string | null
     feedback?: FeedbackListRelationFilter
   }, "id">
 
@@ -3361,6 +3378,7 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     ingredients?: SortOrderInput | SortOrder
     instructions?: SortOrderInput | SortOrder
+    category?: SortOrderInput | SortOrder
     _count?: RecipeCountOrderByAggregateInput
     _avg?: RecipeAvgOrderByAggregateInput
     _max?: RecipeMaxOrderByAggregateInput
@@ -3378,6 +3396,7 @@ export namespace Prisma {
     description?: StringNullableWithAggregatesFilter<"Recipe"> | string | null
     ingredients?: StringNullableWithAggregatesFilter<"Recipe"> | string | null
     instructions?: StringNullableWithAggregatesFilter<"Recipe"> | string | null
+    category?: StringNullableWithAggregatesFilter<"Recipe"> | string | null
   }
 
   export type FeedbackWhereInput = {
@@ -3443,6 +3462,7 @@ export namespace Prisma {
     description?: string | null
     ingredients?: string | null
     instructions?: string | null
+    category?: string | null
     feedback?: FeedbackCreateNestedManyWithoutRecipeInput
   }
 
@@ -3453,6 +3473,7 @@ export namespace Prisma {
     description?: string | null
     ingredients?: string | null
     instructions?: string | null
+    category?: string | null
     feedback?: FeedbackUncheckedCreateNestedManyWithoutRecipeInput
   }
 
@@ -3462,6 +3483,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     ingredients?: NullableStringFieldUpdateOperationsInput | string | null
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     feedback?: FeedbackUpdateManyWithoutRecipeNestedInput
   }
 
@@ -3472,6 +3494,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     ingredients?: NullableStringFieldUpdateOperationsInput | string | null
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     feedback?: FeedbackUncheckedUpdateManyWithoutRecipeNestedInput
   }
 
@@ -3482,6 +3505,7 @@ export namespace Prisma {
     description?: string | null
     ingredients?: string | null
     instructions?: string | null
+    category?: string | null
   }
 
   export type RecipeUpdateManyMutationInput = {
@@ -3490,6 +3514,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     ingredients?: NullableStringFieldUpdateOperationsInput | string | null
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RecipeUncheckedUpdateManyInput = {
@@ -3499,6 +3524,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     ingredients?: NullableStringFieldUpdateOperationsInput | string | null
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type FeedbackCreateInput = {
@@ -3616,6 +3642,7 @@ export namespace Prisma {
     description?: SortOrder
     ingredients?: SortOrder
     instructions?: SortOrder
+    category?: SortOrder
   }
 
   export type RecipeAvgOrderByAggregateInput = {
@@ -3629,6 +3656,7 @@ export namespace Prisma {
     description?: SortOrder
     ingredients?: SortOrder
     instructions?: SortOrder
+    category?: SortOrder
   }
 
   export type RecipeMinOrderByAggregateInput = {
@@ -3638,6 +3666,7 @@ export namespace Prisma {
     description?: SortOrder
     ingredients?: SortOrder
     instructions?: SortOrder
+    category?: SortOrder
   }
 
   export type RecipeSumOrderByAggregateInput = {
@@ -3976,6 +4005,7 @@ export namespace Prisma {
     description?: string | null
     ingredients?: string | null
     instructions?: string | null
+    category?: string | null
   }
 
   export type RecipeUncheckedCreateWithoutFeedbackInput = {
@@ -3985,6 +4015,7 @@ export namespace Prisma {
     description?: string | null
     ingredients?: string | null
     instructions?: string | null
+    category?: string | null
   }
 
   export type RecipeCreateOrConnectWithoutFeedbackInput = {
@@ -4009,6 +4040,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     ingredients?: NullableStringFieldUpdateOperationsInput | string | null
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RecipeUncheckedUpdateWithoutFeedbackInput = {
@@ -4018,6 +4050,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     ingredients?: NullableStringFieldUpdateOperationsInput | string | null
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type FeedbackCreateManyRecipeInput = {
