@@ -1,12 +1,34 @@
+// {
+//   "compilerOptions": {
+//     "target": "es2016",
+//     "module": "commonjs",
+//     "outDir": "./dist",
+//     "esModuleInterop": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "noImplicitAny": true,
+//     "skipLibCheck": true
+//   },
+//   "include": ["src/**/*", "prisma/seed.ts"]
+// }
+
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
-    "outDir": "./dist",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": true,
-    "skipLibCheck": true
+    "target": "es2016",                   
+    "module": "commonjs",                 
+    "outDir": "./dist",                   
+    "esModuleInterop": true,              
+    "forceConsistentCasingInFileNames": true, 
+    "noImplicitAny": true,               
+    "skipLibCheck": true,               
+    "strict": true,  
+    "allowJs": true,                     
+    "baseUrl": ".",                       
+    "paths": {
+      "@prisma/*": ["src/generated/prisma/*"]
+    }
   },
-  "include": ["src/**/*", "prisma/seed.ts"]
+  "include": [
+    "src/**/*",
+    "prisma/seed.ts"
+  ]
 }
