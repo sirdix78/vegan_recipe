@@ -123,7 +123,8 @@ exports.Prisma.RecipeScalarFieldEnum = {
   image: 'image',
   description: 'description',
   ingredients: 'ingredients',
-  instructions: 'instructions'
+  instructions: 'instructions',
+  category: 'category'
 };
 
 exports.Prisma.FeedbackScalarFieldEnum = {
@@ -148,7 +149,13 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-
+exports.Category = exports.$Enums.Category = {
+  Salads: 'Salads',
+  Soups: 'Soups',
+  Dishes: 'Dishes',
+  Desserts: 'Desserts',
+  Drinks: 'Drinks'
+};
 
 exports.Prisma.ModelName = {
   Recipe: 'Recipe',

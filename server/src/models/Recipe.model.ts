@@ -7,5 +7,6 @@ export interface Recipe {
   description?: string | null;
   ingredients?: string | null;
   instructions?: string | null;
+  category?: string | null; 
   feedback: Feedback[];
 }
