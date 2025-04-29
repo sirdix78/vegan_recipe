@@ -25,6 +25,25 @@ export type Recipe = $Result.DefaultSelection<Prisma.$RecipePayload>
 export type Feedback = $Result.DefaultSelection<Prisma.$FeedbackPayload>
 
 /**
+ * Enums
+ */
+export namespace $Enums {
+  export const Category: {
+  Salads: 'Salads',
+  Soups: 'Soups',
+  Dishes: 'Dishes',
+  Drinks: 'Drinks'
+};
+
+export type Category = (typeof Category)[keyof typeof Category]
+
+}
+
+export type Category = $Enums.Category
+
+export const Category: typeof $Enums.Category
+
+/**
  * ##  Prisma Client ʲˢ
  *
  * Type-safe database client for TypeScript & Node.js
@@ -1017,7 +1036,7 @@ export namespace Prisma {
     description: string | null
     ingredients: string | null
     instructions: string | null
-    category: string | null
+    category: $Enums.Category | null
   }
 
   export type RecipeMaxAggregateOutputType = {
@@ -1027,7 +1046,7 @@ export namespace Prisma {
     description: string | null
     ingredients: string | null
     instructions: string | null
-    category: string | null
+    category: $Enums.Category | null
   }
 
   export type RecipeCountAggregateOutputType = {
@@ -1174,7 +1193,7 @@ export namespace Prisma {
     description: string | null
     ingredients: string | null
     instructions: string | null
-    category: string | null
+    category: $Enums.Category
     _count: RecipeCountAggregateOutputType | null
     _avg: RecipeAvgAggregateOutputType | null
     _sum: RecipeSumAggregateOutputType | null
@@ -1258,7 +1277,7 @@ export namespace Prisma {
       description: string | null
       ingredients: string | null
       instructions: string | null
-      category: string | null
+      category: $Enums.Category
     }, ExtArgs["result"]["recipe"]>
     composites: {}
   }
@@ -1689,7 +1708,7 @@ export namespace Prisma {
     readonly description: FieldRef<"Recipe", 'String'>
     readonly ingredients: FieldRef<"Recipe", 'String'>
     readonly instructions: FieldRef<"Recipe", 'String'>
-    readonly category: FieldRef<"Recipe", 'String'>
+    readonly category: FieldRef<"Recipe", 'Category'>
   }
     
 
@@ -3316,6 +3335,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Category'
+   */
+  export type EnumCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Category'>
+    
+
+
+  /**
+   * Reference to a field of type 'Category[]'
+   */
+  export type ListEnumCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Category[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -3342,7 +3375,7 @@ export namespace Prisma {
     description?: StringNullableFilter<"Recipe"> | string | null
     ingredients?: StringNullableFilter<"Recipe"> | string | null
     instructions?: StringNullableFilter<"Recipe"> | string | null
-    category?: StringNullableFilter<"Recipe"> | string | null
+    category?: EnumCategoryFilter<"Recipe"> | $Enums.Category
     feedback?: FeedbackListRelationFilter
   }
 
@@ -3353,7 +3386,7 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     ingredients?: SortOrderInput | SortOrder
     instructions?: SortOrderInput | SortOrder
-    category?: SortOrderInput | SortOrder
+    category?: SortOrder
     feedback?: FeedbackOrderByRelationAggregateInput
   }
 
@@ -3367,7 +3400,7 @@ export namespace Prisma {
     description?: StringNullableFilter<"Recipe"> | string | null
     ingredients?: StringNullableFilter<"Recipe"> | string | null
     instructions?: StringNullableFilter<"Recipe"> | string | null
-    category?: StringNullableFilter<"Recipe"> | string | null
+    category?: EnumCategoryFilter<"Recipe"> | $Enums.Category
     feedback?: FeedbackListRelationFilter
   }, "id">
 
@@ -3378,7 +3411,7 @@ export namespace Prisma {
     description?: SortOrderInput | SortOrder
     ingredients?: SortOrderInput | SortOrder
     instructions?: SortOrderInput | SortOrder
-    category?: SortOrderInput | SortOrder
+    category?: SortOrder
     _count?: RecipeCountOrderByAggregateInput
     _avg?: RecipeAvgOrderByAggregateInput
     _max?: RecipeMaxOrderByAggregateInput
@@ -3396,7 +3429,7 @@ export namespace Prisma {
     description?: StringNullableWithAggregatesFilter<"Recipe"> | string | null
     ingredients?: StringNullableWithAggregatesFilter<"Recipe"> | string | null
     instructions?: StringNullableWithAggregatesFilter<"Recipe"> | string | null
-    category?: StringNullableWithAggregatesFilter<"Recipe"> | string | null
+    category?: EnumCategoryWithAggregatesFilter<"Recipe"> | $Enums.Category
   }
 
   export type FeedbackWhereInput = {
@@ -3462,7 +3495,7 @@ export namespace Prisma {
     description?: string | null
     ingredients?: string | null
     instructions?: string | null
-    category?: string | null
+    category: $Enums.Category
     feedback?: FeedbackCreateNestedManyWithoutRecipeInput
   }
 
@@ -3473,7 +3506,7 @@ export namespace Prisma {
     description?: string | null
     ingredients?: string | null
     instructions?: string | null
-    category?: string | null
+    category: $Enums.Category
     feedback?: FeedbackUncheckedCreateNestedManyWithoutRecipeInput
   }
 
@@ -3483,7 +3516,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     ingredients?: NullableStringFieldUpdateOperationsInput | string | null
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: EnumCategoryFieldUpdateOperationsInput | $Enums.Category
     feedback?: FeedbackUpdateManyWithoutRecipeNestedInput
   }
 
@@ -3494,7 +3527,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     ingredients?: NullableStringFieldUpdateOperationsInput | string | null
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: EnumCategoryFieldUpdateOperationsInput | $Enums.Category
     feedback?: FeedbackUncheckedUpdateManyWithoutRecipeNestedInput
   }
 
@@ -3505,7 +3538,7 @@ export namespace Prisma {
     description?: string | null
     ingredients?: string | null
     instructions?: string | null
-    category?: string | null
+    category: $Enums.Category
   }
 
   export type RecipeUpdateManyMutationInput = {
@@ -3514,7 +3547,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     ingredients?: NullableStringFieldUpdateOperationsInput | string | null
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: EnumCategoryFieldUpdateOperationsInput | $Enums.Category
   }
 
   export type RecipeUncheckedUpdateManyInput = {
@@ -3524,7 +3557,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     ingredients?: NullableStringFieldUpdateOperationsInput | string | null
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: EnumCategoryFieldUpdateOperationsInput | $Enums.Category
   }
 
   export type FeedbackCreateInput = {
@@ -3618,6 +3651,13 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type EnumCategoryFilter<$PrismaModel = never> = {
+    equals?: $Enums.Category | EnumCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.Category[] | ListEnumCategoryFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Category[] | ListEnumCategoryFieldRefInput<$PrismaModel>
+    not?: NestedEnumCategoryFilter<$PrismaModel> | $Enums.Category
   }
 
   export type FeedbackListRelationFilter = {
@@ -3725,6 +3765,16 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type EnumCategoryWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Category | EnumCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.Category[] | ListEnumCategoryFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Category[] | ListEnumCategoryFieldRefInput<$PrismaModel>
+    not?: NestedEnumCategoryWithAggregatesFilter<$PrismaModel> | $Enums.Category
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCategoryFilter<$PrismaModel>
+    _max?: NestedEnumCategoryFilter<$PrismaModel>
+  }
+
   export type RecipeScalarRelationFilter = {
     is?: RecipeWhereInput
     isNot?: RecipeWhereInput
@@ -3786,6 +3836,10 @@ export namespace Prisma {
 
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
+  }
+
+  export type EnumCategoryFieldUpdateOperationsInput = {
+    set?: $Enums.Category
   }
 
   export type FeedbackUpdateManyWithoutRecipeNestedInput = {
@@ -3877,6 +3931,13 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type NestedEnumCategoryFilter<$PrismaModel = never> = {
+    equals?: $Enums.Category | EnumCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.Category[] | ListEnumCategoryFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Category[] | ListEnumCategoryFieldRefInput<$PrismaModel>
+    not?: NestedEnumCategoryFilter<$PrismaModel> | $Enums.Category
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -3949,6 +4010,16 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedEnumCategoryWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Category | EnumCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.Category[] | ListEnumCategoryFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Category[] | ListEnumCategoryFieldRefInput<$PrismaModel>
+    not?: NestedEnumCategoryWithAggregatesFilter<$PrismaModel> | $Enums.Category
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCategoryFilter<$PrismaModel>
+    _max?: NestedEnumCategoryFilter<$PrismaModel>
+  }
+
   export type FeedbackCreateWithoutRecipeInput = {
     reviewer_name: string
     rating: number
@@ -4005,7 +4076,7 @@ export namespace Prisma {
     description?: string | null
     ingredients?: string | null
     instructions?: string | null
-    category?: string | null
+    category: $Enums.Category
   }
 
   export type RecipeUncheckedCreateWithoutFeedbackInput = {
@@ -4015,7 +4086,7 @@ export namespace Prisma {
     description?: string | null
     ingredients?: string | null
     instructions?: string | null
-    category?: string | null
+    category: $Enums.Category
   }
 
   export type RecipeCreateOrConnectWithoutFeedbackInput = {
@@ -4040,7 +4111,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     ingredients?: NullableStringFieldUpdateOperationsInput | string | null
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: EnumCategoryFieldUpdateOperationsInput | $Enums.Category
   }
 
   export type RecipeUncheckedUpdateWithoutFeedbackInput = {
@@ -4050,7 +4121,7 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     ingredients?: NullableStringFieldUpdateOperationsInput | string | null
     instructions?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: EnumCategoryFieldUpdateOperationsInput | $Enums.Category
   }
 
   export type FeedbackCreateManyRecipeInput = {

@@ -149,7 +149,12 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-
+exports.Category = exports.$Enums.Category = {
+  Salads: 'Salads',
+  Soups: 'Soups',
+  Dishes: 'Dishes',
+  Drinks: 'Drinks'
+};
 
 exports.Prisma.ModelName = {
   Recipe: 'Recipe',

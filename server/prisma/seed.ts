@@ -4,28 +4,31 @@ const prisma= require ("../src/db");
 async function main() {
   await prisma.recipe.createMany({
     data: [
-      { title: "Vegan Pancakes", description: "Fluffy pancakes..." },
-      { title: "Quinoa Salad", description: "Healthy quinoa salad..." },
+      { title: "Vegan Pancakes", description: "Fluffy pancakes...", "category": "Dishes" },
+      { title: "Quinoa Salad", description: "Healthy quinoa salad...", "category": "Salads" },
       {
         "title": "Vegan Pancakes",
         "image": "https://example.com/vegan-pancakes.jpg",
         "description": "Fluffy and light vegan pancakes.",
         "ingredients": "flour, sugar, almond milk, baking powder, salt",
-        "instructions": "Mix ingredients, cook on a hot pan for 2-3 minutes per side."
+        "instructions": "Mix ingredients, cook on a hot pan for 2-3 minutes per side.",
+        "category": "Dishes"
       },
       {
         "title": "Vegan Banana Bread",
         "image": "https://example.com/banana-bread.jpg",
         "description": "A soft and delicious vegan banana bread.",
         "ingredients": "flour, bananas, sugar, baking powder, salt",
-        "instructions": "Mash bananas, mix with dry ingredients, bake at 350°F (175°C) for 50 minutes."
+        "instructions": "Mash bananas, mix with dry ingredients, bake at 350°F (175°C) for 50 minutes.",
+        "category": "Dishes"
       },
       {
       "title": "Vegan Banana Bread bread",
       "image": "https://examgggple.com/banana-bread.jpg",
       "description": "A really soft and delicious vegan banana bread.",
       "ingredients": "flour, bananas, salt, sugar, baking powder, salt",
-      "instructions": "Mash bananas, mix with dry ingredients, bake at 350°F (175°C) for 50 minutes."
+      "instructions": "Mash bananas, mix with dry ingredients, bake at 350°F (175°C) for 50 minutes.",
+      "category": "Dishes"
       }
       // more recipes...
     ],

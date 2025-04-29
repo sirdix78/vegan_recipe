@@ -36,6 +36,14 @@ router.get("/:id", async (req: Request<{ id: string }>, res: Response) => {
 // Create a new recipe
 router.post("/", async (req: Request, res: Response) => {
   const { title, image, description, ingredients, instructions, category, } = req.body;
+  if (!title || !category) {
+    return res.status(400).json({ message: "Title and category are required" });
+  }
+
+  const allowedCategories = ["Salads", "Soups", "Dishes", "Drinks"];
+  if (!allowedCategories.includes(category)) {
+    return res.status(400).json({ message: "Invalid category" });
+  }
 
   const newRecipe = await prisma.recipe.create({
     data: {

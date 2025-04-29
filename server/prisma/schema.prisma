@@ -14,6 +14,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Category {
+  Salads
+  Soups
+  Dishes
+  Drinks
+}
+
 model Recipe {
   id           Int        @id @default(autoincrement())
   title        String
@@ -21,7 +28,7 @@ model Recipe {
   description  String?
   ingredients  String?
   instructions String?
-  category     String?
+  category     Category
   feedback     Feedback[]
 }
 
