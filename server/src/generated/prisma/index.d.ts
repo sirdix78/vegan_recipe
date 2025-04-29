@@ -32,6 +32,7 @@ export namespace $Enums {
   Salads: 'Salads',
   Soups: 'Soups',
   Dishes: 'Dishes',
+  Desserts: 'Desserts',
   Drinks: 'Drinks'
 };
 

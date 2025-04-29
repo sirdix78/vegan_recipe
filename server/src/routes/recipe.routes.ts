@@ -40,7 +40,7 @@ router.post("/", async (req: Request, res: Response) => {
     return res.status(400).json({ message: "Title and category are required" });
   }
 
-  const allowedCategories = ["Salads", "Soups", "Dishes", "Drinks"];
+  const allowedCategories = ["Salads", "Soups", "Dishes", "Desserts", "Drinks"];
   if (!allowedCategories.includes(category)) {
     return res.status(400).json({ message: "Invalid category" });
   }

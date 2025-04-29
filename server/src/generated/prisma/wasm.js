@@ -153,6 +153,7 @@ exports.Category = exports.$Enums.Category = {
   Salads: 'Salads',
   Soups: 'Soups',
   Dishes: 'Dishes',
+  Desserts: 'Desserts',
   Drinks: 'Drinks'
 };
 
