@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
+import divider from "../assets/divider-img.webp";
+import bigDivider from "../assets/big-divider.webp";
 import axios from "axios";
-import "./HomePage.css";
+import "../index.css";
 
 interface Feedback {
   reviewer_name: string;
@@ -27,7 +29,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await axios.get("http://localhost:5005/api/recipes");
+        const response = await axios.get("http://127.0.0.1:5005/api/recipes");
         setRecipes(response.data);
         setLoading(false);
       } catch (error) {
@@ -45,14 +47,14 @@ const HomePage = () => {
 
   const renderCategory = (title: string, category: string) => (
     <div className="category-container">
+      <img src={bigDivider} className="big-divider-img"></img>
       <h2>{title}</h2>
-      <Row className="recipe-row">
+      <Row>
         {recipes
           .filter((recipe) => recipe.category === category)
           .map((recipe) => (
-            <Col sm key={recipe.id}>
-              <div className="recipe-card">
-                <div className="recipe-title">{recipe.title}</div>
+            <Col sm={3} key={recipe.id}>
+              <Card className="recipe-card">
                 {recipe.image && (
                   <img
                     src={recipe.image}
@@ -60,7 +62,9 @@ const HomePage = () => {
                     className="recipe-image"
                   />
                 )}
-              </div>
+                <img src={divider} className="divider-img"></img>
+                <div className="recipe-title">{recipe.title}</div>
+              </Card>
             </Col>
           ))}
       </Row>
