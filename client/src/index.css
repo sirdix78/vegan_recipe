@@ -1,3 +1,30 @@
-body {
-  margin: 0;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+.logo {
+  height: 160px;
+}
+.logo-nav {
+  height: 70px;
+}
+.bg-body-tertiary.navbar.navbar-expand-lg {
+  background-color: white !important;
+}
+.nav-link {
+  font-size: 20px !important;
+}
+.about-page {
+  padding: 30px;
+}
+.divider-img {
+  width: 100%;
+}
+p {
+  text-align: justify;
+  padding: 20px;
+}
+.footer {
+  margin-top: 40px;
 }
