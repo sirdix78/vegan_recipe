@@ -138,6 +138,146 @@ async function main() {
 6. Let cool in the pan before cutting into squares.
 7. Optionally, sprinkle with powdered sugar or drizzle with melted chocolate.`,
         category: "Desserts"
+      },
+      {
+        title: "Spicy Carrot Ginger Soup",
+        image: "https://www.theendlessmeal.com/wp-content/uploads/2020/03/Carrot-Soup-4.jpg",
+        description: "Warming and slightly spicy vegan soup.",
+        ingredients: "carrots, ginger, onion, garlic, vegetable broth, coconut milk",
+        instructions: `1. Peel and chop carrots, onion, garlic, and fresh ginger.
+      2. In a large pot, heat olive oil and sauté onion and garlic until translucent.
+      3. Add ginger and carrots, cooking for another 5 minutes.
+      4. Pour in vegetable broth and bring to a boil.
+      5. Lower heat and simmer for 20 minutes until carrots are tender.
+      6. Use an immersion blender to blend the soup until smooth.
+      7. Stir in coconut milk and season with salt, pepper, and a pinch of chili flakes.
+      8. Heat through and serve with fresh cilantro.`,
+        category: "Soups"
+      },
+      {
+        title: "Rainbow Veggie Salad",
+        image: "https://veggiefunkitchen.com/wp-content/uploads/2023/06/rainbow-salad-4-scaled.jpg",
+        description: "Colorful and crunchy vegetable salad.",
+        ingredients: "carrot, red cabbage, bell pepper, cucumber, edamame, sesame seeds",
+        instructions: `1. Grate carrots and shred red cabbage.
+      2. Dice bell pepper and cucumber into small cubes.
+      3. Cook edamame and let it cool.
+      4. In a large bowl, combine all veggies and edamame.
+      5. Prepare a dressing with rice vinegar, sesame oil, maple syrup, and soy sauce.
+      6. Pour dressing over the salad and toss well.
+      7. Sprinkle with sesame seeds and serve chilled.`,
+        category: "Salads"
+      },
+      {
+        title: "Berry Almond Smoothie",
+        image: "https://madcreationshub.com/wp-content/uploads/2018/02/Lamington-12.jpg",
+        description: "Sweet and antioxidant-packed smoothie.",
+        ingredients: "mixed berries, almond milk, banana, almond butter, chia seeds",
+        instructions: `1. Wash fresh or frozen mixed berries.
+      2. Peel and slice banana.
+      3. Add berries, banana, almond milk, almond butter, and chia seeds to a blender.
+      4. Blend on high until smooth and creamy.
+      5. Serve immediately with extra berries on top if desired.`,
+        category: "Drinks"
+      },
+      {
+        title: "Stuffed Bell Peppers",
+        image: "https://www.howtocook.recipes/wp-content/uploads/2021/09/Stuffed-peppers-recipe.jpg",
+        description: "Oven-baked bell peppers stuffed with grains and veggies.",
+        ingredients: "bell peppers, quinoa, black beans, corn, tomato, spices",
+        instructions: `1. Preheat oven to 180°C (350°F).
+      2. Cut tops off bell peppers and remove seeds.
+      3. Cook quinoa according to package instructions.
+      4. In a pan, sauté diced tomatoes, corn, and black beans with cumin, paprika, salt, and pepper.
+      5. Mix cooked quinoa into the veggie mixture.
+      6. Stuff each bell pepper with the filling and place in a baking dish.
+      7. Cover with foil and bake for 30 minutes.
+      8. Remove foil and bake another 10 minutes.
+      9. Serve hot, garnished with fresh parsley.`,
+        category: "Dishes"
+      },
+      {
+        title: "Vegan Lemon Tart",
+        image: "https://biancazapatka.com/wp-content/uploads/2020/05/vegan-lemon-tart-with-strawberries.jpg",
+        description: "Tangy and refreshing lemon dessert.",
+        ingredients: "vegan pie crust, lemon juice, coconut milk, corn starch, maple syrup",
+        instructions: `1. Pre-bake a vegan pie crust at 180°C (350°F) for 10 minutes.
+      2. In a saucepan, whisk together lemon juice, coconut milk, corn starch, and maple syrup.
+      3. Heat over medium heat, stirring constantly, until thickened.
+      4. Pour the lemon filling into the pre-baked crust.
+      5. Chill in the fridge for at least 2 hours.
+      6. Garnish with fresh berries and lemon zest before serving.`,
+        category: "Desserts"
+      },
+      {
+        title: "Vegan Cauliflower Tacos",
+        image: "https://rainbowplantlife.com/wp-content/uploads/2020/11/cauliflowertacosongreen281of129.jpg",
+        description: "Crispy cauliflower tacos with a spicy lime dressing.",
+        ingredients: "cauliflower, taco shells, avocado, lime, cilantro, chili powder",
+        instructions: `1. Preheat oven to 200°C (400°F).
+      2. Cut cauliflower into bite-sized florets.
+      3. Toss cauliflower with olive oil, chili powder, salt, and pepper.
+      4. Arrange on a baking sheet and roast for 20-25 minutes, flipping halfway through.
+      5. In a small bowl, mix lime juice, olive oil, and a pinch of salt for the dressing.
+      6. Warm taco shells in the oven for 5 minutes.
+      7. Assemble tacos by adding roasted cauliflower, sliced avocado, and a drizzle of lime dressing.
+      8. Garnish with fresh cilantro and serve.`,
+        category: "Dishes"
+      },
+      {
+        title: "Vegan Chocolate Chip Cookies",
+        image: "https://biancazapatka.com/wp-content/uploads/2023/02/chocolate-chip-cookies-vegan-720x1008.jpg",
+        description: "Crispy on the outside and soft on the inside chocolate chip cookies.",
+        ingredients: "flour, baking soda, sugar, vegan butter, almond milk, chocolate chips",
+        instructions: `1. Preheat oven to 180°C (350°F).
+      2. In a large bowl, whisk together flour and baking soda.
+      3. In another bowl, cream together vegan butter and sugar until fluffy.
+      4. Add almond milk and vanilla extract, then mix in dry ingredients.
+      5. Fold in chocolate chips.
+      6. Scoop cookie dough onto a baking sheet, spacing them 2 inches apart.
+      7. Bake for 10-12 minutes or until golden.
+      8. Let cool on the baking sheet for 5 minutes before transferring to a wire rack.`,
+        category: "Desserts"
+      },
+      {
+        title: "Vegan Buddha Bowl",
+        image: "https://biancazapatka.com/wp-content/uploads/2021/07/buddha-bowl.jpg",
+        description: "A wholesome bowl of grains, veggies, and a creamy tahini dressing.",
+        ingredients: "quinoa, chickpeas, spinach, avocado, carrot, tahini",
+        instructions: `1. Cook quinoa according to package instructions.
+      2. In a pan, sauté chickpeas with olive oil and spices until crispy.
+      3. Grate or slice carrot, and slice avocado.
+      4. Assemble the bowl with quinoa, sautéed chickpeas, fresh spinach, carrot, and avocado.
+      5. In a small bowl, mix tahini, lemon juice, water, and salt to make the dressing.
+      6. Drizzle the tahini dressing over the bowl and serve.`,
+        category: "Salads"
+      },
+      {
+        title: "Vegan Mushroom Risotto",
+        image: "https://wowitsveggie.com/wp-content/uploads/2023/09/Vegan-Mushroom-Risotto-Recipe-2-720x540.jpg",
+        description: "Creamy and comforting mushroom risotto.",
+        ingredients: "arborio rice, mushrooms, vegetable broth, onion, garlic, white wine",
+        instructions: `1. In a large pan, sauté onion and garlic in olive oil until translucent.
+      2. Add sliced mushrooms and cook until browned, about 5-7 minutes.
+      3. Stir in arborio rice and cook for 2 minutes to toast it slightly.
+      4. Add white wine and stir until it evaporates.
+      5. Gradually add vegetable broth, one ladle at a time, stirring constantly until absorbed before adding more.
+      6. Continue until the rice is tender and creamy, about 20 minutes.
+      7. Season with salt, pepper, and fresh parsley before serving.`,
+        category: "Dishes"
+      },
+      {
+        title: "Vegan Pancakes",
+        image: "https://cdn77-s3.lazycatkitchen.com/wp-content/uploads/2022/08/vegan-pancakes-for-one-800x1200.jpg",
+        description: "Fluffy and light vegan pancakes.",
+        ingredients: "flour, almond milk, baking powder, sugar, vanilla extract",
+        instructions: `1. In a large bowl, mix together flour, baking powder, and sugar.
+      2. Add almond milk and vanilla extract, stirring until smooth.
+      3. Heat a non-stick pan over medium heat and lightly grease it.
+      4. Pour batter onto the pan, forming small pancakes.
+      5. Cook for 2-3 minutes on each side, until golden brown.
+      6. Serve with maple syrup, berries, and vegan butter.`,
+        category: "Desserts"
       }
       
   
