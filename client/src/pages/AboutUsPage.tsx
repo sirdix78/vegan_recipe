@@ -1,43 +1,37 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import aboutMe from "../assets/about1-img.jpg";
-import aboutBook from "../assets/about2-img.jpg";
+import aboutMe from "../assets/about1-img.jpeg";
+import aboutMe2 from "../assets/about2-img.jpg";
 import divider from "../assets/divider-img.webp";
+import "./AboutUsPage.css";
 
 const AboutUsPage = () => {
   return (
     <div className="about-page">
       <Row>
         <Col sm={8}>
-          <img src={aboutMe} className="about1-img" alt="About me image" />
+        
+  
           <p>
-            Hi, I’m Angela. Welcome to Oh She Glows – an award-winning recipe
-            blog featuring over 500 healthy recipes (and growing)! For the past
-            6 years, I’ve shared energizing, plant-based recipes that my family
-            and I enjoy on a daily basis. My goal is to inspire you to embrace
-            more plant-based foods in your diet without feeling the least bit
-            deprived. And yes, my recipes are great for meat-eaters and picky
-            kids too! Most of my recipes are gluten-free and many are
-            allergy-friendly (just check the recipe for the allergy info). My
-            first cookbook, The Oh She Glows Cookbook (released March 4, 2014)
-            is a New York Times Bestseller. It was also selected as
-            Chapters/Indigo’s BOOK OF THE YEAR for 2014. It features over 100
-            plant-based recipes (including 85 gluten-free recipes) using real,
-            whole food ingredients. The book also contains over 100 full-page,
-            full-colour photographs shot by yours truly!{" "}
+          Welcome to our recipe space — a place born from our passion for wholesome, nourishing food and a deep respect for all living beings. 
+    We created this website because we believe that eating well can go hand in hand with caring for the planet and the animals we share it with.
+    Here you’ll find a growing collection of plant-based recipes made from simple, real ingredients that fuel both body and soul.
+    Our mission is to inspire you to embrace delicious, mindful eating without compromise. Whether you're vegan, plant-curious, or simply 
+    looking to add more vibrant, ethical meals to your table — you're in the right place!{" "}
           </p>
+          <img src={aboutMe2} className="about2-img" alt="About me image" />
         </Col>
         <Col sm={4}>
-          <h4>About Angela</h4>
+          <h4>About Us</h4>
+          <img src={aboutMe} className="about1-img" alt="About me image" />
           <img src={divider} className="divider-img"></img>
           <p>
-            About Angela I’m Angela, the founder of Oh She Glows. Since 2008,
-            I’ve been on a journey to glow from the inside out by creating
-            crowd-pleasing plant-based recipes. I’m a New York Times Bestselling
-            cookbook author and award-winning app creator. Click below for my
-            full story!
+          Behind every recipe on this site is our belief that good food should nourish, uplift, and respect all life. 
+    We care about the ingredients we use, the impact we have on the world, and the animals who call it home.
+    This is more than just a recipe collection — it’s our way of promoting compassion, health, and mindful living.
+    Join us on this journey to discover how joyful and flavorful ethical eating can be.
           </p>
-          <img src={aboutBook} className="about1-img" alt="About me image" />
+          {/* <img src={aboutBook} className="about1-img" alt="About me image" /> */}
         </Col>
       </Row>
     </div>
