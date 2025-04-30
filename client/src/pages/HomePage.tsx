@@ -74,6 +74,7 @@ const HomePage = () => {
       {renderCategory("Salads", "Salads")}
       {renderCategory("Soups", "Soups")}
       {renderCategory("Main Dishes", "Dishes")}
+      {renderCategory("Desserts", "Desserts")}
       {renderCategory("Drinks", "Drinks")}
     </>
   );
