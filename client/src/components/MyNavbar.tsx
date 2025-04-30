@@ -31,6 +31,7 @@ function MyNavbar() {
               <NavDropdown.Item href="#action3">Salads</NavDropdown.Item>
               <NavDropdown.Item href="#action4">Soups</NavDropdown.Item>
               <NavDropdown.Item href="#action5">Main dishes</NavDropdown.Item>
+              <NavDropdown.Item href="#action5">Desserts</NavDropdown.Item>
               <NavDropdown.Item href="#action6">Drinks</NavDropdown.Item>
             </NavDropdown>
           </Nav>
