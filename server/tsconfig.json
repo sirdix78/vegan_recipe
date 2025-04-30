@@ -1,15 +1,3 @@
-// {
-//   "compilerOptions": {
-//     "target": "es2016",
-//     "module": "commonjs",
-//     "outDir": "./dist",
-//     "esModuleInterop": true,
-//     "forceConsistentCasingInFileNames": true,
-//     "noImplicitAny": true,
-//     "skipLibCheck": true
-//   },
-//   "include": ["src/**/*", "prisma/seed.ts"]
-// }
 
 {
   "compilerOptions": {

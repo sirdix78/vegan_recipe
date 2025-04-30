@@ -4,6 +4,7 @@ import divider from "../assets/divider-img.webp";
 import bigDivider from "../assets/big-divider.webp";
 import axios from "axios";
 import "../index.css";
+import { Link } from "react-router-dom";
 
 interface Feedback {
   reviewer_name: string;
@@ -54,17 +55,19 @@ const HomePage = () => {
           .filter((recipe) => recipe.category === category)
           .map((recipe) => (
             <Col sm={3} key={recipe.id}>
-              <Card className="recipe-card">
-                {recipe.image && (
-                  <img
-                    src={recipe.image}
-                    alt={recipe.title}
-                    className="recipe-image"
-                  />
-                )}
-                <img src={divider} className="divider-img"></img>
-                <div className="recipe-title">{recipe.title}</div>
-              </Card>
+              <Link to={`/details/${recipe.id}`} className="recipe-link">
+                <Card className="recipe-card">
+                  {recipe.image && (
+                    <img
+                      src={recipe.image}
+                      alt={recipe.title}
+                      className="recipe-image"
+                    />
+                  )}
+                  <img src={divider} className="divider-img"></img>
+                  <div className="recipe-title">{recipe.title}</div>
+                </Card>
+                </Link>
             </Col>
           ))}
       </Row>
