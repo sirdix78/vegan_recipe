@@ -6,11 +6,6 @@ import axios from "axios";
 import "../index.css";
 import { Link } from "react-router-dom";
 
-interface Feedback {
-  reviewer_name: string;
-  rating: number;
-  comment?: string;
-}
 
 interface Recipe {
   id: number;
@@ -20,7 +15,7 @@ interface Recipe {
   ingredients?: string;
   instructions?: string;
   category: string;
-  feedback: Feedback[];
+ 
 }
 
 const HomePage = () => {

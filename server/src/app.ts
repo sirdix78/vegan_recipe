@@ -25,27 +25,54 @@
 
 // ℹ️ Gets access to environment variables/settings
 
+// import dotenv from 'dotenv';
+// dotenv.config();
+
+// import './db';
+// import express, { Application } from 'express';
+
+// const app: Application = express();
+
+// import config from './config';
+// config(app);
+
+// import indexRoutes from './routes/index.routes';
+// app.use('/api', indexRoutes);
+
+// const recipeRoutes = require('./routes/recipe.routes');
+// app.use('/api/recipes', recipeRoutes);
+
+// const feedbackRoutes = require ('./routes/feedback.routes');
+// app.use('/api/recipes', feedbackRoutes);
+
+// import errorHandling from './error-handling';
+// errorHandling(app);
+
+// export default app;
+
 import dotenv from 'dotenv';
 dotenv.config();
 
-// ℹ️ Connects to the database
 import './db';
-
-// Handles http requests (express is node js framework)
 import express, { Application } from 'express';
 
-// Create Express application
 const app: Application = express();
 
-// ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 import config from './config';
 config(app);
 
-// 👇 Start handling routes here
+
 import indexRoutes from './routes/index.routes';
 app.use('/api', indexRoutes);
 
-// ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
+
+const recipeRoutes = require('./routes/recipe.routes');
+app.use('/api/recipes', recipeRoutes);
+
+
+const feedbackRoutes = require('./routes/feedback.routes');
+app.use('/api/feedback', feedbackRoutes);  
+
 import errorHandling from './error-handling';
 errorHandling(app);
 

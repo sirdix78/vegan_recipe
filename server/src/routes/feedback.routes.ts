@@ -34,12 +34,27 @@ router.get("/:id", async (req: Request<{ id: string }>, res: Response) => {
   
 
 // Create a new feedback
-router.post("/", async (req: Request, res: Response) => {
-  const { recipe_id, reviewer_name, rating, comment } = req.body;
+// router.post("/", async (req: Request, res: Response) => {
+//   const { recipe_id, reviewer_name, rating, comment } = req.body;
+
+//   const newFeedback = await prisma.feedback.create({
+//     data: {
+//       recipe_id,
+//       reviewer_name,
+//       rating,
+//       comment,
+//     },
+//   });
+
+//   res.status(201).json(newFeedback);
+// });
+router.post("/recipe/:recipeId", async (req: Request, res: Response) => {
+  const { recipeId } = req.params;
+  const { reviewer_name, rating, comment } = req.body;
 
   const newFeedback = await prisma.feedback.create({
     data: {
-      recipe_id,
+      recipe_id: Number(recipeId),
       reviewer_name,
       rating,
       comment,
@@ -76,5 +91,4 @@ router.delete("/:id", async (req: Request, res: Response) => {
 
   res.json(deletedFeedback);
 });
-
 module.exports = router;
