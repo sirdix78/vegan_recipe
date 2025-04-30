@@ -6,7 +6,6 @@ import axios from "axios";
 import "../index.css";
 import { Link } from "react-router-dom";
 
-
 interface Recipe {
   id: number;
   title: string;
@@ -15,7 +14,6 @@ interface Recipe {
   ingredients?: string;
   instructions?: string;
   category: string;
- 
 }
 
 const HomePage = () => {
@@ -60,9 +58,9 @@ const HomePage = () => {
                     />
                   )}
                   <img src={divider} className="divider-img"></img>
-                  <div className="recipe-title">{recipe.title}</div>
+                  <p className="recipe-title">{recipe.title}</p>
                 </Card>
-                </Link>
+              </Link>
             </Col>
           ))}
       </Row>

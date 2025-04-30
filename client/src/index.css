@@ -13,6 +13,9 @@ h3,
 h4 {
   font-family: "Playwrite AU SA", cursive;
 }
+a {
+  text-decoration: none !important;
+}
 .logo {
   height: 160px;
 }
@@ -31,6 +34,14 @@ h4 {
 .about-page {
   padding: 30px;
 }
+.about1-img {
+  padding: 10px;
+  width: 100%;
+}
+.about2-img {
+  padding: 10px;
+  width: 100%;
+}
 .divider-img {
   width: 100%;
 }
@@ -40,20 +51,23 @@ h4 {
 }
 p {
   text-align: justify;
-  padding: 20px;
-  /* font-family: "Noto Serif", serif;
-  font-optical-sizing: auto;
-  font-weight: 500; */
+  padding-top: 10px;
 }
-.footer {
-  margin-top: 40px;
+.recipe-detail p {
+  text-align: center;
+}
+.recipe-detail img {
+  width: 60%;
+  margin: 20px;
 }
 .recipe-card {
   text-align: center;
   padding: 10px;
   background-color: #f9f9f9;
   border-radius: 8px;
+  border: 1px solid #716d38 !important;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 10px 0px;
 }
 .recipe-image {
   object-fit: cover;
@@ -66,7 +80,82 @@ p {
   text-transform: uppercase;
   font-weight: bold;
   padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  margin: 0px;
+}
+.add-new-recipe {
+  margin: 50px 0px;
+}
+.add-new-recipe h2 {
+  padding: 30px;
 }
 .category-container h2 {
   padding: 20px;
+}
+.detail-form,
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+}
+input,
+optgroup,
+select,
+textarea {
+  padding: 10px !important;
+  margin: 10px !important;
+  border: 1px solid #716d38;
+  border-radius: 10px;
+}
+button {
+  background-color: white;
+  border: 1px solid #716d38;
+  border: none;
+}
+.search-btn {
+  background-color: white !important;
+  border: 1px solid #716d38 !important;
+  color: #716d38 !important;
+  margin: 10px 15px !important;
+}
+svg {
+  font-size: 20px;
+  color: #716d38;
+}
+.recipe-btn {
+  width: 40%;
+  margin: 20px auto;
+  border: 1px solid #716d38;
+  background-color: #716d38;
+  color: white;
+  padding: 10px;
+  text-transform: uppercase;
+  border-radius: 10px;
+}
+label {
+  padding-top: 20px;
+  text-transform: uppercase;
+}
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  line-height: 2;
+}
+.edit-form h4 {
+  margin-top: 30px;
+}
+.edit-detail {
+  line-height: 3;
+}
+.edit-comments {
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  margin-top: 60px;
+}
+.footer p {
+  text-align: center;
 }

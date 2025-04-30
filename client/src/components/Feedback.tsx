@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { FiEdit } from "react-icons/fi";
 
 interface Feedback {
   id: number;
@@ -17,20 +19,22 @@ const Feedback: React.FC<FeedbackProps> = ({ recipeId }) => {
   const [newComment, setNewComment] = useState("");
   const [reviewerName, setReviewerName] = useState("");
   const [rating, setRating] = useState(5);
-  const [editMode, setEditMode] = useState(false);
+  // const [editMode, setEditMode] = useState(false);
+  const [editingId, setEditingId] = useState<number | null>(null);
+  const [editComment, setEditComment] = useState("");
+  const [editRating, setEditRating] = useState(5);
 
   useEffect(() => {
     const fetchFeedback = async () => {
       try {
         const response = await axios.get(
-        `http://127.0.0.1:5005/api/feedback/recipe/${recipeId}`
+          `http://127.0.0.1:5005/api/feedback/recipe/${recipeId}`
         );
         setFeedback(response.data);
       } catch (error) {
         console.error("Error fetching feedback", error);
       }
     };
-
     fetchFeedback();
   }, [recipeId]);
 
@@ -45,8 +49,7 @@ const Feedback: React.FC<FeedbackProps> = ({ recipeId }) => {
           comment: newComment,
         }
       );
-
-      setFeedback((prevFeedback) => [...prevFeedback, response.data]);  
+      setFeedback((prevFeedback) => [...prevFeedback, response.data]);
       setNewComment("");
       setReviewerName("");
       setRating(5);
@@ -54,109 +57,84 @@ const Feedback: React.FC<FeedbackProps> = ({ recipeId }) => {
       console.error("Error adding feedback", error);
     }
   };
-  
-    // Handle bulk update of all feedback
-    const handleBulkUpdate = async () => {
-      try {
-        // Update feedback items on the backend
-        await Promise.all(
-          feedback.map((fb) =>
-            axios.put(`http://127.0.0.1:5005/api/feedback/${fb.id}`, {
-              rating: fb.rating,
-              comment: fb.comment,
-            })
-          )
-        );
-  
-       
-        const refreshed = await axios.get(
-        `http://127.0.0.1:5005/api/feedback/recipe/${recipeId}`
-        );
-        setFeedback(refreshed.data);
-        setEditMode(false); // Exit edit mode after saving
-      } catch (error) {
-        console.error("Error updating feedback:", error);
-      }
-    };
-  
-    // Handle deleting a feedback
-    const handleDelete = async (id: number) => {
-      try {
-        // Send a DELETE request to the server to remove the feedback
-        await axios.delete(`http://127.0.0.1:5005/api/feedback/${id}`);
-        
-        // If deletion is successful, we also update the local state
-        setFeedback(feedback.filter((fb) => fb.id !== id));
-    
-        const refreshed = await axios.get(
-          `http://127.0.0.1:5005/api/recipes/${recipeId}/feedback`
-        );
-        setFeedback(refreshed.data); // Ensure feedback is up-to-date from the server
-    
-      } catch (error) {
-        console.error("Error deleting feedback:", error);
-      }
-    };
-    
 
+  const handleEdit = (fb: Feedback) => {
+    setEditingId(fb.id);
+    setEditComment(fb.comment || "");
+    setEditRating(fb.rating);
+  };
+
+  const handleUpdate = async (id: number) => {
+    try {
+      const response = await axios.put(
+        `http://127.0.0.1:5005/api/feedback/${id}`,
+        {
+          rating: editRating,
+          comment: editComment,
+        }
+      );
+
+      setFeedback((prevFeedback) =>
+        prevFeedback.map((fb) =>
+          fb.id === id ? { ...fb, ...response.data } : fb
+        )
+      );
+      setEditingId(null);
+    } catch (error) {
+      console.error("Error updating feedback:", error);
+    }
+  };
+
+  // Delete feedback
+  const handleDelete = async (id: number) => {
+    try {
+      await axios.delete(`http://127.0.0.1:5005/api/feedback/${id}`);
+      setFeedback(feedback.filter((fb) => fb.id !== id));
+    } catch (error) {
+      console.error("Error deleting feedback:", error);
+    }
+  };
   return (
-    <div>
+    <div className="edit-detail">
+      <hr />
       <h4>Comments:</h4>
-  
-      <button onClick={() => setEditMode(!editMode)}>
-        {editMode ? "Exit Edit Mode" : "Edit All Feedback"}
-      </button>
-  
-      {feedback.map((fb, index) => (
-        <div key={fb.id} style={{ marginBottom: "1rem" }}>
-          <strong>{fb.reviewer_name}</strong>
-  
-          {editMode ? (
-            <>
-              <div>
-                <label>Rating:</label>
-                <input
-                  type="number"
-                  value={fb.rating}
-                  min="1"
-                  max="5"
-                  onChange={(e) => {
-                    const updated = [...feedback];
-                    updated[index].rating = Number(e.target.value);
-                    setFeedback(updated);
-                  }}
-                />
-              </div>
-              <div>
-                <label>Comment:</label>
-                <textarea
-                  value={fb.comment}
-                  onChange={(e) => {
-                    const updated = [...feedback];
-                    updated[index].comment = e.target.value;
-                    setFeedback(updated);
-                  }}
-                />
-              </div>
-            </>
+      {feedback.map((fb) => (
+        <div key={fb.id}>
+          {editingId === fb.id ? (
+            <div className="edit-comments">
+              <label>Change your feedback</label>
+              <textarea
+                value={editComment}
+                onChange={(e) => setEditComment(e.target.value)}
+              />
+              <label>Change your rating</label>
+              <input
+                type="number"
+                value={editRating}
+                onChange={(e) => setEditRating(Number(e.target.value))}
+                min="1"
+                max="5"
+              />
+              <button onClick={() => handleUpdate(fb.id)}>Save</button>
+              <button onClick={() => setEditingId(null)}>Cancel</button>
+            </div>
           ) : (
-            <p>
-              ({fb.rating}/5): {fb.comment}
-            </p>
+            <>
+              <strong>{fb.reviewer_name}</strong> ({fb.rating}/5): {fb.comment}
+              <button onClick={() => handleEdit(fb)}>
+                <FiEdit />
+              </button>
+              <button onClick={() => handleDelete(fb.id)}>
+                <RiDeleteBin6Line />
+              </button>
+            </>
           )}
-  
-          <button onClick={() => handleDelete(fb.id)}>Delete</button>
         </div>
       ))}
-  
-      {editMode && (
-        <button onClick={handleBulkUpdate} style={{ marginBottom: "1rem" }}>
-          Save All Changes
-        </button>
-      )}
-  
-      <h4>Add New Comment:</h4>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="edit-form">
+        <hr />
+        <h4>Add Feedback</h4>
+        <label>Username</label>
         <input
           type="text"
           value={reviewerName}
@@ -164,12 +142,14 @@ const Feedback: React.FC<FeedbackProps> = ({ recipeId }) => {
           placeholder="Your name"
           required
         />
+        <label>Write your comment</label>
         <textarea
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           placeholder="Leave a comment"
           required
         />
+        <label>Give your rating</label>
         <input
           type="number"
           value={rating}
@@ -177,11 +157,12 @@ const Feedback: React.FC<FeedbackProps> = ({ recipeId }) => {
           min="1"
           max="5"
         />
-        <button type="submit">Add Comment</button>
+        <button type="submit" className="recipe-btn">
+          Add Comment
+        </button>
       </form>
     </div>
   );
-  
 };
 
 export default Feedback;

@@ -42,7 +42,7 @@ function MyNavbar() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button className="search-btn">Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
