@@ -11,7 +11,7 @@ function MyNavbar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#">
+        <Navbar.Brand as={Link} to="/">
           <img src={Logo} className="logo-nav" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -29,19 +29,19 @@ function MyNavbar() {
             </Nav.Link>
 
             <NavDropdown title="Categories" id="navbarScrollingDropdown">
-              <NavDropdown.Item as="a" href="#salads">
+              <NavDropdown.Item as={Link} to="/#Salads">
                 Salads
               </NavDropdown.Item>
-              <NavDropdown.Item as="a" href="#soups">
+              <NavDropdown.Item as={Link} to="/#Soups">
                 Soups
               </NavDropdown.Item>
-              <NavDropdown.Item as="a" href="#dishes">
+              <NavDropdown.Item as={Link} to="/#Dishes">
                 Main dishes
               </NavDropdown.Item>
-              <NavDropdown.Item as="a" href="#desserts">
+              <NavDropdown.Item as={Link} to="/#Desserts">
                 Desserts
               </NavDropdown.Item>
-              <NavDropdown.Item as="a" href="#drinks">
+              <NavDropdown.Item as={Link} to="/#Drinks">
                 Drinks
               </NavDropdown.Item>
             </NavDropdown>

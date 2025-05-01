@@ -4,7 +4,7 @@ import divider from "../assets/divider-img.webp";
 import bigDivider from "../assets/big-divider.webp";
 import axios from "axios";
 import "../index.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 interface Recipe {
   id: number;
@@ -19,6 +19,8 @@ interface Recipe {
 const HomePage = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+
+  const location = useLocation();
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -35,12 +37,23 @@ const HomePage = () => {
     fetchRecipes();
   }, []);
 
+  useEffect(() => {
+    if (!loading && location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100); // небольшая задержка для гарантии что DOM успеет прогрузиться
+      }
+    }
+  }, [loading, location]);
+
   if (loading) {
     return <div>Loading...</div>;
   }
 
   const renderCategory = (title: string, category: string) => (
-    <div id={category.toLowerCase()} className="category-container">
+    <div className="category-container" id={category}>
       <img src={bigDivider} className="big-divider-img" />
       <h2>{title}</h2>
       <Row>
