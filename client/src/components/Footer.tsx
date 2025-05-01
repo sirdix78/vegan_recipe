@@ -1,10 +1,11 @@
 import Row from "react-bootstrap/Row";
-import { RiFacebookCircleLine } from "react-icons/ri";
+import { AiOutlineFacebook } from "react-icons/ai";
 import { TbBrandInstagram } from "react-icons/tb";
-import { IoLogoTiktok } from "react-icons/io5";
+import { AiOutlineTikTok } from "react-icons/ai";
 import { TbBrandLinkedin } from "react-icons/tb";
 import Col from "react-bootstrap/Col";
 import divider from "../assets/divider-img.webp";
+import { TbBrandYoutube } from "react-icons/tb";
 
 const Footer = () => {
   return (
@@ -28,8 +29,11 @@ const Footer = () => {
           <h4>Follow us</h4>
           <img src={divider} className="divider-img"></img>
           <p>
-            <RiFacebookCircleLine /> <TbBrandInstagram /> <IoLogoTiktok />
+            <AiOutlineFacebook />
+            <TbBrandInstagram />
+            <AiOutlineTikTok />
             <TbBrandLinkedin />
+            <TbBrandYoutube />
           </p>
         </Col>
       </Row>

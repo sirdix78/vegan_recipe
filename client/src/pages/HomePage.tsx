@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { Row, Col, Card } from "react-bootstrap";
 import divider from "../assets/divider-img.webp";
 import bigDivider from "../assets/big-divider.webp";
+import { Link, useLocation } from "react-router-dom";
+import BackToTopButton from "../components/BackToTop";
 import axios from "axios";
 import "../index.css";
-import { Link, useLocation } from "react-router-dom";
 
 interface Recipe {
   id: number;
@@ -16,10 +17,13 @@ interface Recipe {
   category: string;
 }
 
-const HomePage = () => {
+interface HomePageProps {
+  searchTerm: string;
+}
+
+const HomePage: React.FC<HomePageProps> = ({ searchTerm }) => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-
   const location = useLocation();
 
   useEffect(() => {
@@ -43,7 +47,7 @@ const HomePage = () => {
       if (element) {
         setTimeout(() => {
           element.scrollIntoView({ behavior: "smooth" });
-        }, 100); // небольшая задержка для гарантии что DOM успеет прогрузиться
+        }, 100);
       }
     }
   }, [loading, location]);
@@ -58,7 +62,12 @@ const HomePage = () => {
       <h2>{title}</h2>
       <Row>
         {recipes
-          .filter((recipe) => recipe.category === category)
+          // .filter((recipe) => recipe.category === category)
+          .filter(
+            (recipe) =>
+              recipe.category === category &&
+              recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+          )
           .map((recipe) => (
             <Col sm={3} key={recipe.id}>
               <Link to={`/details/${recipe.id}`} className="recipe-link">
@@ -87,6 +96,7 @@ const HomePage = () => {
       {renderCategory("Main Dishes", "Dishes")}
       {renderCategory("Desserts", "Desserts")}
       {renderCategory("Drinks", "Drinks")}
+      <BackToTopButton />
     </>
   );
 };

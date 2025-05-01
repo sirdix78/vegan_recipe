@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { FiEdit } from "react-icons/fi";
+import { BiEdit } from "react-icons/bi";
+import { FaStar } from "react-icons/fa";
 
 interface Feedback {
   id: number;
@@ -14,12 +15,30 @@ interface FeedbackProps {
   recipeId: number;
 }
 
+const StarRating = ({
+  rating,
+  onChange,
+}: {
+  rating: number;
+  onChange: (value: number) => void;
+}) => (
+  <div style={{ textAlign: "center", gap: "5px" }}>
+    {[1, 2, 3, 4, 5].map((value) => (
+      <FaStar
+        key={value}
+        size={20}
+        style={{ cursor: "pointer" }}
+        color={value <= rating ? "#ffc107" : "#e4e5e9"}
+        onClick={() => onChange(value)}
+      />
+    ))}
+  </div>
+);
 const Feedback: React.FC<FeedbackProps> = ({ recipeId }) => {
   const [feedback, setFeedback] = useState<Feedback[]>([]);
   const [newComment, setNewComment] = useState("");
   const [reviewerName, setReviewerName] = useState("");
   const [rating, setRating] = useState(5);
-  // const [editMode, setEditMode] = useState(false);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editComment, setEditComment] = useState("");
   const [editRating, setEditRating] = useState(5);
@@ -108,13 +127,7 @@ const Feedback: React.FC<FeedbackProps> = ({ recipeId }) => {
                 onChange={(e) => setEditComment(e.target.value)}
               />
               <label>Change your rating</label>
-              <input
-                type="number"
-                value={editRating}
-                onChange={(e) => setEditRating(Number(e.target.value))}
-                min="1"
-                max="5"
-              />
+              <StarRating rating={editRating} onChange={setEditRating} />
               <button onClick={() => handleUpdate(fb.id)}>Save</button>
               <button onClick={() => setEditingId(null)}>Cancel</button>
             </div>
@@ -122,7 +135,7 @@ const Feedback: React.FC<FeedbackProps> = ({ recipeId }) => {
             <>
               <strong>{fb.reviewer_name}</strong> ({fb.rating}/5): {fb.comment}
               <button onClick={() => handleEdit(fb)}>
-                <FiEdit />
+                <BiEdit />
               </button>
               <button onClick={() => handleDelete(fb.id)}>
                 <RiDeleteBin6Line />
@@ -150,13 +163,7 @@ const Feedback: React.FC<FeedbackProps> = ({ recipeId }) => {
           required
         />
         <label>Give your rating</label>
-        <input
-          type="number"
-          value={rating}
-          onChange={(e) => setRating(Number(e.target.value))}
-          min="1"
-          max="5"
-        />
+        <StarRating rating={rating} onChange={setRating} />
         <button type="submit" className="recipe-btn">
           Add Comment
         </button>

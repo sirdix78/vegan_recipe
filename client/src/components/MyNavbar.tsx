@@ -7,7 +7,12 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 import Logo from "../assets/fav2.png";
 
-function MyNavbar() {
+interface MyNavbarProps {
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
+}
+
+const MyNavbar: React.FC<MyNavbarProps> = ({ searchTerm, setSearchTerm }) => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -51,6 +56,8 @@ function MyNavbar() {
               type="search"
               placeholder="Search"
               className="me-2"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               aria-label="Search"
             />
             <Button className="search-btn">Search</Button>
@@ -59,6 +66,6 @@ function MyNavbar() {
       </Container>
     </Navbar>
   );
-}
+};
 
 export default MyNavbar;
