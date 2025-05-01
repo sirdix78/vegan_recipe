@@ -110,7 +110,7 @@ const RecipeDetailPage = () => {
     if (recipe) {
       try {
         await axios.delete(`http://127.0.0.1:5005/api/recipes/${id}`);
-        navigate("/recipes");
+        navigate("/");
       } catch (error) {
         console.error("Error deleting recipe", error);
       }
