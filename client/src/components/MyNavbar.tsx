@@ -27,12 +27,23 @@ function MyNavbar() {
             <Nav.Link as={Link} to="/about">
               About
             </Nav.Link>
+
             <NavDropdown title="Categories" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Salads</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Soups</NavDropdown.Item>
-              <NavDropdown.Item href="#action5">Main dishes</NavDropdown.Item>
-              <NavDropdown.Item href="#action5">Desserts</NavDropdown.Item>
-              <NavDropdown.Item href="#action6">Drinks</NavDropdown.Item>
+              <NavDropdown.Item as="a" href="#salads">
+                Salads
+              </NavDropdown.Item>
+              <NavDropdown.Item as="a" href="#soups">
+                Soups
+              </NavDropdown.Item>
+              <NavDropdown.Item as="a" href="#dishes">
+                Main dishes
+              </NavDropdown.Item>
+              <NavDropdown.Item as="a" href="#desserts">
+                Desserts
+              </NavDropdown.Item>
+              <NavDropdown.Item as="a" href="#drinks">
+                Drinks
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Form className="d-flex">

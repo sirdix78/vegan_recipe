@@ -40,8 +40,8 @@ const HomePage = () => {
   }
 
   const renderCategory = (title: string, category: string) => (
-    <div className="category-container">
-      <img src={bigDivider} className="big-divider-img"></img>
+    <div id={category.toLowerCase()} className="category-container">
+      <img src={bigDivider} className="big-divider-img" />
       <h2>{title}</h2>
       <Row>
         {recipes
@@ -57,7 +57,7 @@ const HomePage = () => {
                       className="recipe-image"
                     />
                   )}
-                  <img src={divider} className="divider-img"></img>
+                  <img src={divider} className="divider-img" />
                   <p className="recipe-title">{recipe.title}</p>
                 </Card>
               </Link>
