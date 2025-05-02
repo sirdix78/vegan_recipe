@@ -47,7 +47,8 @@ const Feedback: React.FC<FeedbackProps> = ({ recipeId }) => {
     const fetchFeedback = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:5005/api/feedback/recipe/${recipeId}`
+          // `http://127.0.0.1:5005/api/feedback/recipe/${recipeId}`
+          `${import.meta.env.VITE_API_URL}/api/feedback/recipe/${recipeId}`
         );
         setFeedback(response.data);
       } catch (error) {
@@ -61,7 +62,8 @@ const Feedback: React.FC<FeedbackProps> = ({ recipeId }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://127.0.0.1:5005/api/feedback/recipe/${recipeId}`,
+        // `http://127.0.0.1:5005/api/feedback/recipe/${recipeId}`,
+        `${import.meta.env.VITE_API_URL}/api/feedback/recipe/${recipeId}`,
         {
           reviewer_name: reviewerName,
           rating,
@@ -86,7 +88,9 @@ const Feedback: React.FC<FeedbackProps> = ({ recipeId }) => {
   const handleUpdate = async (id: number) => {
     try {
       const response = await axios.put(
-        `http://127.0.0.1:5005/api/feedback/${id}`,
+        // `http://127.0.0.1:5005/api/feedback/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/feedback/${id}`,
+
         {
           rating: editRating,
           comment: editComment,
@@ -107,7 +111,7 @@ const Feedback: React.FC<FeedbackProps> = ({ recipeId }) => {
   // Delete feedback
   const handleDelete = async (id: number) => {
     try {
-      await axios.delete(`http://127.0.0.1:5005/api/feedback/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/feedback/${id}`);
       setFeedback(feedback.filter((fb) => fb.id !== id));
     } catch (error) {
       console.error("Error deleting feedback:", error);

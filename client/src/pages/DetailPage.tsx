@@ -57,7 +57,8 @@ const RecipeDetailPage = () => {
     const fetchRecipe = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:5005/api/recipes/${id}`
+          // `http://127.0.0.1:5005/api/recipes/${id}`
+          `${import.meta.env.VITE_API_URL}/api/recipes/${id}`
         );
         setRecipe(response.data);
         setFormData(response.data);
@@ -95,7 +96,8 @@ const RecipeDetailPage = () => {
     if (recipe) {
       try {
         const response = await axios.put(
-          `http://127.0.0.1:5005/api/recipes/${id}`,
+          // `http://127.0.0.1:5005/api/recipes/${id}`,
+          `${import.meta.env.VITE_API_URL}/api/recipes/${id}`,
           formData
         );
         setRecipe(response.data);
@@ -109,7 +111,10 @@ const RecipeDetailPage = () => {
   const handleDelete = async () => {
     if (recipe) {
       try {
-        await axios.delete(`http://127.0.0.1:5005/api/recipes/${id}`);
+        await axios.delete(
+          // `http://127.0.0.1:5005/api/recipes/${id}`
+          `${import.meta.env.VITE_API_URL}/api/recipes/${id}`
+        );
         navigate("/");
       } catch (error) {
         console.error("Error deleting recipe", error);
@@ -138,7 +143,8 @@ const RecipeDetailPage = () => {
 
     try {
       const response = await axios.post(
-        `http://127.0.0.1:5005/api/recipes`,
+        // `http://127.0.0.1:5005/api/recipes`,
+        `${import.meta.env.VITE_API_URL}/api/recipes`,
         {
           title: newRecipe.title,
           image: newRecipe.image || "",
