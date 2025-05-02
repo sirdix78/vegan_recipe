@@ -34,11 +34,12 @@ router.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     return;
 }));
 // Create a new feedback
-router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { recipe_id, reviewer_name, rating, comment } = req.body;
+router.post("/recipe/:recipeId", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { recipeId } = req.params;
+    const { reviewer_name, rating, comment } = req.body;
     const newFeedback = yield prisma.feedback.create({
         data: {
-            recipe_id,
+            recipe_id: Number(recipeId),
             reviewer_name,
             rating,
             comment,
