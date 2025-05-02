@@ -57,7 +57,6 @@ const RecipeDetailPage = () => {
     const fetchRecipe = async () => {
       try {
         const response = await axios.get(
-          // `http://127.0.0.1:5005/api/recipes/${id}`
           `${import.meta.env.VITE_API_URL}/api/recipes/${id}`
         );
         setRecipe(response.data);
@@ -96,7 +95,6 @@ const RecipeDetailPage = () => {
     if (recipe) {
       try {
         const response = await axios.put(
-          // `http://127.0.0.1:5005/api/recipes/${id}`,
           `${import.meta.env.VITE_API_URL}/api/recipes/${id}`,
           formData
         );
@@ -111,10 +109,7 @@ const RecipeDetailPage = () => {
   const handleDelete = async () => {
     if (recipe) {
       try {
-        await axios.delete(
-          // `http://127.0.0.1:5005/api/recipes/${id}`
-          `${import.meta.env.VITE_API_URL}/api/recipes/${id}`
-        );
+        await axios.delete(`${import.meta.env.VITE_API_URL}/api/recipes/${id}`);
         navigate("/");
       } catch (error) {
         console.error("Error deleting recipe", error);
@@ -143,7 +138,6 @@ const RecipeDetailPage = () => {
 
     try {
       const response = await axios.post(
-        // `http://127.0.0.1:5005/api/recipes`,
         `${import.meta.env.VITE_API_URL}/api/recipes`,
         {
           title: newRecipe.title,
@@ -161,7 +155,7 @@ const RecipeDetailPage = () => {
         }
       );
       console.log("Recipe added successfully:", response.data);
-      navigate(`/recipes/${response.data.id}`);
+      navigate(`/details/${response.data.id}`);
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
         console.error(

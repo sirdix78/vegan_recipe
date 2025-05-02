@@ -64,7 +64,6 @@ const HomePage: React.FC<HomePageProps> = ({ searchTerm }) => {
       <h2>{title}</h2>
       <Row>
         {recipes
-          // .filter((recipe) => recipe.category === category)
           .filter(
             (recipe) =>
               recipe.category === category &&
