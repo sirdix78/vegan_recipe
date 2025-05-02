@@ -177,70 +177,62 @@ const RecipeDetailPage = () => {
         {isEditing ? (
           <>
             <h1>Edit Recipe</h1>
-            <form>
-              <div>
-                <label>Title:</label>
-                <input
-                  type="text"
-                  name="title"
-                  value={formData.title || ""}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div>
-                <label>Image URL:</label>
-                <input
-                  type="text"
-                  name="image"
-                  value={formData.image || ""}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label>Description:</label>
-                <textarea
-                  name="description"
-                  value={formData.description || ""}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label>Ingredients:</label>
-                <textarea
-                  name="ingredients"
-                  value={formData.ingredients || ""}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label>Instructions:</label>
-                <textarea
-                  name="instructions"
-                  value={formData.instructions || ""}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label>Category:</label>
-                <select
-                  name="category"
-                  value={formData.category}
-                  onChange={handleChange}
-                  required
-                >
-                  <option value="">Select Category</option>
-                  {categories.map((category) => (
-                    <option key={category} value={category}>
-                      {category}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <button type="button" onClick={handleUpdate}>
+            <form className="edit-recipe-form">
+              <label>Title:</label>
+              <input
+                type="text"
+                name="title"
+                value={formData.title || ""}
+                onChange={handleChange}
+                required
+              />
+              <label>Image URL:</label>
+              <input
+                type="text"
+                name="image"
+                value={formData.image || ""}
+                onChange={handleChange}
+              />
+              <label>Description:</label>
+              <textarea
+                name="description"
+                value={formData.description || ""}
+                onChange={handleChange}
+              />
+              <label>Ingredients:</label>
+              <textarea
+                name="ingredients"
+                value={formData.ingredients || ""}
+                onChange={handleChange}
+              />
+              <label>Instructions:</label>
+              <textarea
+                name="instructions"
+                value={formData.instructions || ""}
+                onChange={handleChange}
+              />
+              <label>Category:</label>
+              <select
+                name="category"
+                value={formData.category}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Category</option>
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+              <button type="button" className="save-btn" onClick={handleUpdate}>
                 Save Changes
               </button>
-              <button type="button" onClick={handleCancel}>
+              <button
+                type="button"
+                className="cancel-btn"
+                onClick={handleCancel}
+              >
                 Cancel
               </button>
             </form>

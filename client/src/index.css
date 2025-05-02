@@ -93,7 +93,8 @@ p {
   padding: 20px;
 }
 .detail-form,
-.edit-form {
+.edit-form,
+.edit-recipe-form {
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -107,6 +108,10 @@ textarea {
   margin: 10px !important;
   border: 1px solid #716d38;
   border-radius: 10px;
+}
+.comment-textarea {
+  width: 80%;
+  margin: auto !important;
 }
 button {
   background-color: white;
@@ -124,8 +129,10 @@ svg {
   color: #716d38;
   margin-left: 10px;
 }
-.recipe-btn {
-  width: 40%;
+.recipe-btn,
+.cancel-btn,
+.save-btn {
+  width: 250px;
   margin: 20px auto;
   border: 1px solid #716d38;
   background-color: #716d38;
@@ -152,6 +159,10 @@ label {
 .edit-comments {
   display: flex;
   flex-direction: column;
+}
+.not-found-img {
+  padding: 20px 0px;
+  width: 50%;
 }
 .footer {
   margin-top: 60px;

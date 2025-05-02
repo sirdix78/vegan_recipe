@@ -125,6 +125,7 @@ const Feedback: React.FC<FeedbackProps> = ({ recipeId }) => {
               <textarea
                 value={editComment}
                 onChange={(e) => setEditComment(e.target.value)}
+                className="comment-textarea"
               />
               <label>Change your rating</label>
               <StarRating rating={editRating} onChange={setEditRating} />
