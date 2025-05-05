@@ -62,31 +62,33 @@ const HomePage: React.FC<HomePageProps> = ({ searchTerm }) => {
     <div className="category-container" id={category}>
       <img src={bigDivider} className="big-divider-img" />
       <h2>{title}</h2>
-      <Row>
-        {recipes
-          .filter(
-            (recipe) =>
-              recipe.category === category &&
-              recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
-          )
-          .map((recipe) => (
-            <Col sm={3} key={recipe.id}>
-              <Link to={`/details/${recipe.id}`} className="recipe-link">
-                <Card className="recipe-card">
-                  {recipe.image && (
-                    <img
-                      src={recipe.image}
-                      alt={recipe.title}
-                      className="recipe-image"
-                    />
-                  )}
-                  <img src={divider} className="divider-img" />
-                  <p className="recipe-title">{recipe.title}</p>
-                </Card>
-              </Link>
-            </Col>
-          ))}
-      </Row>
+      <div className="container">
+        <Row>
+          {recipes
+            .filter(
+              (recipe) =>
+                recipe.category === category &&
+                recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+            .map((recipe) => (
+              <Col xs={12} sm={6} md={3} key={recipe.id}>
+                <Link to={`/details/${recipe.id}`} className="recipe-link">
+                  <Card className="recipe-card">
+                    {recipe.image && (
+                      <img
+                        src={recipe.image}
+                        alt={recipe.title}
+                        className="recipe-image"
+                      />
+                    )}
+                    <img src={divider} className="divider-img" />
+                    <p className="recipe-title">{recipe.title}</p>
+                  </Card>
+                </Link>
+              </Col>
+            ))}
+        </Row>
+      </div>
     </div>
   );
 

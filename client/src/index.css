@@ -10,6 +10,14 @@
 html {
   scroll-behavior: smooth;
 }
+body {
+  overflow-x: hidden !important;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 h1,
 h2,
 h3,
@@ -20,7 +28,7 @@ a {
   text-decoration: none !important;
 }
 .logo {
-  height: 150px;
+  width: 30%;
 }
 .logo-nav {
   height: 70px;
@@ -34,6 +42,7 @@ a {
 .navbar-collapse.collapse a {
   font-family: "Acme", sans-serif !important;
 }
+
 .about-page {
   padding: 30px;
 }
@@ -169,4 +178,18 @@ label {
 }
 .footer p {
   text-align: center;
+}
+@media (max-width: 768px) {
+  .logo {
+    width: 60%;
+  }
+}
+
+@media (max-width: 430px) {
+  .logo {
+    width: 90%;
+  }
+  .logo-nav {
+    height: 50px;
+  }
 }
