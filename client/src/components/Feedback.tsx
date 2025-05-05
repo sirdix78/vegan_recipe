@@ -165,7 +165,7 @@ const Feedback: React.FC<FeedbackProps> = ({ recipeId }) => {
         <label>Give your rating</label>
         <StarRating rating={rating} onChange={setRating} />
         <button type="submit" className="recipe-btn">
-          Add Comment
+          Add a Comment
         </button>
       </form>
     </div>

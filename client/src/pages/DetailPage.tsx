@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import Feedback from "../components/Feedback";
 import bigDivider from "../assets/big-divider.webp";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -155,7 +156,7 @@ const RecipeDetailPage = () => {
         }
       );
       navigate(`/details/${response.data.id}`);
-      setShowAddForm(false); // ← скрыть форму после добавления
+      setShowAddForm(false);
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
         console.error(
@@ -178,7 +179,6 @@ const RecipeDetailPage = () => {
           <>
             <h1>Edit Recipe</h1>
             <form className="edit-recipe-form">
-              {/* Поля редактирования */}
               <label>Title:</label>
               <input
                 type="text"
@@ -229,7 +229,11 @@ const RecipeDetailPage = () => {
               <button type="button" className="save-btn" onClick={handleUpdate}>
                 Save Changes
               </button>
-              <button type="button" className="cancel-btn" onClick={handleCancel}>
+              <button
+                type="button"
+                className="cancel-btn"
+                onClick={handleCancel}
+              >
                 Cancel
               </button>
             </form>
@@ -266,10 +270,15 @@ const RecipeDetailPage = () => {
         )}
       </div>
 
-  
-      <button onClick={() => setShowAddForm(!showAddForm)} className="add-btn">
-  +
-</button>
+      <button
+        onClick={() => setShowAddForm(!showAddForm)}
+        className="recipe-btn"
+      >
+        Create a recipe{" "}
+        <span className="arrow-svg">
+          {showAddForm ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
+        </span>
+      </button>
 
       {showAddForm && (
         <div className="add-new-recipe">
@@ -333,12 +342,11 @@ const RecipeDetailPage = () => {
               onClick={handleAddNewRecipe}
               className="recipe-btn"
             >
-              Add Recipe
+              Add a Recipe
             </button>
           </form>
         </div>
       )}
-
       <Feedback recipeId={Number(id)} />
     </>
   );
