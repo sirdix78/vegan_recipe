@@ -31,6 +31,8 @@ const RecipeDetailPage = () => {
   const [recipe, setRecipe] = useState<Recipe | null>(null);
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
+  const [showAddForm, setShowAddForm] = useState(false); // ← добавил состояние для формы
+
   const [formData, setFormData] = useState<Recipe>({
     id: 0,
     title: "",
@@ -134,8 +136,6 @@ const RecipeDetailPage = () => {
       return;
     }
 
-    console.log("Sending new recipe data:", newRecipe);
-
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/api/recipes`,
@@ -154,8 +154,8 @@ const RecipeDetailPage = () => {
           },
         }
       );
-      console.log("Recipe added successfully:", response.data);
       navigate(`/details/${response.data.id}`);
+      setShowAddForm(false); // ← скрыть форму после добавления
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
         console.error(
@@ -178,6 +178,7 @@ const RecipeDetailPage = () => {
           <>
             <h1>Edit Recipe</h1>
             <form className="edit-recipe-form">
+              {/* Поля редактирования */}
               <label>Title:</label>
               <input
                 type="text"
@@ -228,11 +229,7 @@ const RecipeDetailPage = () => {
               <button type="button" className="save-btn" onClick={handleUpdate}>
                 Save Changes
               </button>
-              <button
-                type="button"
-                className="cancel-btn"
-                onClick={handleCancel}
-              >
+              <button type="button" className="cancel-btn" onClick={handleCancel}>
                 Cancel
               </button>
             </form>
@@ -268,71 +265,79 @@ const RecipeDetailPage = () => {
           </>
         )}
       </div>
-      <div className="add-new-recipe">
-        <img src={bigDivider} className="big-divider-img"></img>
-        <h2>Add a New Recipe</h2>
-        <form className="detail-form">
-          <label>Title:</label>
-          <input
-            type="text"
-            name="title"
-            value={newRecipe.title}
-            onChange={handleNewRecipeChange}
-            placeholder="Write a title"
-            required
-          />
-          <label>Image URL:</label>
-          <input
-            type="text"
-            name="image"
-            value={newRecipe.image}
-            onChange={handleNewRecipeChange}
-            placeholder="Insert image url"
-          />
-          <label>Description:</label>
-          <textarea
-            name="description"
-            value={newRecipe.description}
-            onChange={handleNewRecipeChange}
-            placeholder="Write the description"
-          />
-          <label>Ingredients:</label>
-          <textarea
-            name="ingredients"
-            value={newRecipe.ingredients}
-            onChange={handleNewRecipeChange}
-            placeholder="Write the ingredients"
-          />
-          <label>Instructions:</label>
-          <textarea
-            name="instructions"
-            value={newRecipe.instructions}
-            onChange={handleNewRecipeChange}
-            placeholder="Write the instructions"
-          />
-          <label>Category:</label>
-          <select
-            name="category"
-            value={newRecipe.category}
-            onChange={handleNewRecipeChange}
-            required
-          >
-            <option value="">Select Category</option>
-            {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-          <button
-            type="button"
-            onClick={handleAddNewRecipe}
-            className="recipe-btn"
-          >
-            Add Recipe
-          </button>
-        </form>
-      </div>
+
+  
+      <button onClick={() => setShowAddForm(!showAddForm)} className="add-btn">
+  +
+</button>
+
+      {showAddForm && (
+        <div className="add-new-recipe">
+          <img src={bigDivider} className="big-divider-img" />
+          <h2>Add a New Recipe</h2>
+          <form className="detail-form">
+            <label>Title:</label>
+            <input
+              type="text"
+              name="title"
+              value={newRecipe.title}
+              onChange={handleNewRecipeChange}
+              placeholder="Write a title"
+              required
+            />
+            <label>Image URL:</label>
+            <input
+              type="text"
+              name="image"
+              value={newRecipe.image}
+              onChange={handleNewRecipeChange}
+              placeholder="Insert image url"
+            />
+            <label>Description:</label>
+            <textarea
+              name="description"
+              value={newRecipe.description}
+              onChange={handleNewRecipeChange}
+              placeholder="Write the description"
+            />
+            <label>Ingredients:</label>
+            <textarea
+              name="ingredients"
+              value={newRecipe.ingredients}
+              onChange={handleNewRecipeChange}
+              placeholder="Write the ingredients"
+            />
+            <label>Instructions:</label>
+            <textarea
+              name="instructions"
+              value={newRecipe.instructions}
+              onChange={handleNewRecipeChange}
+              placeholder="Write the instructions"
+            />
+            <label>Category:</label>
+            <select
+              name="category"
+              value={newRecipe.category}
+              onChange={handleNewRecipeChange}
+              required
+            >
+              <option value="">Select Category</option>
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+            <button
+              type="button"
+              onClick={handleAddNewRecipe}
+              className="recipe-btn"
+            >
+              Add Recipe
+            </button>
+          </form>
+        </div>
+      )}
 
       <Feedback recipeId={Number(id)} />
     </>
