@@ -135,6 +135,17 @@ exports.Prisma.FeedbackScalarFieldEnum = {
   comment: 'comment'
 };
 
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  username: 'username',
+  email: 'email',
+  password: 'password',
+  profileImage: 'profileImage',
+  admin: 'admin',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -159,7 +170,8 @@ exports.Category = exports.$Enums.Category = {
 
 exports.Prisma.ModelName = {
   Recipe: 'Recipe',
-  Feedback: 'Feedback'
+  Feedback: 'Feedback',
+  User: 'User'
 };
 
 /**

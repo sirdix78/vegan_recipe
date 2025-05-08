@@ -33,15 +33,6 @@ model Recipe {
   feedback     Feedback[]
 }
 
-// model Feedback {
-//   id            Int     @id @default(autoincrement())
-//   recipe_id     Int
-//   recipe        Recipe  @relation(fields: [recipe_id], references: [id])
-//   reviewer_name String
-//   rating        Int
-//   comment       String?
-// }
-
 model Feedback {
   id            Int     @id @default(autoincrement())
   recipe_id     Int
@@ -49,4 +40,15 @@ model Feedback {
   reviewer_name String
   rating        Int
   comment       String?
+}
+
+model User {
+  id           String   @id @default(uuid())
+  username     String
+  email        String   @unique
+  password     String
+  profileImage String? // optional
+  admin        Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
