@@ -59,6 +59,12 @@ const MyNavbar: React.FC<MyNavbarProps> = ({ searchTerm, setSearchTerm }) => {
                 Drinks
               </NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link as={Link} to="/login">
+              Login
+            </Nav.Link>
+            <Nav.Link as={Link} to="/signup">
+              Sign up
+            </Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
